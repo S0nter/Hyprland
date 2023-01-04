@@ -18,6 +18,7 @@
 #include "Subsurface.hpp"
 #include "WLSurface.hpp"
 #include "Workspace.hpp"
+#include <optional>
 
 class CXDGSurfaceResource;
 class CXWaylandSurface;
@@ -343,9 +344,8 @@ class CWindow {
     // Transformers
     std::vector<std::unique_ptr<IWindowTransformer>> m_vTransformers;
 
-    /// Wobbly modifications
     // Wobbly effect
-    CWobblyModel* m_pWobblyModel = nullptr;
+    std::optional<CWobblyModel> m_oWobblyModel;
 
     // for alpha
     CAnimatedVariable<float> m_fActiveInactiveAlpha;

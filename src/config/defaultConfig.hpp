@@ -128,6 +128,11 @@ animations {
     animation = borderangle, 1, 8, default
     animation = fade, 1, 7, default
     animation = workspaces, 1, 6, default
+
+    wobble {
+        enabled = no
+        only_floating = yes
+    }
 }
 
 # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more

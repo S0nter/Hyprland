@@ -15,7 +15,7 @@
 #define WOBBLY_FRICTION 3
 #define WOBBLY_SPRING_K 8
 
-CWobblyModel::CWobblyModel(CWindow* window) {
+CWobblyModel::CWobblyModel(PHLWINDOW window) {
     m_pWindow = window;
 
     m_iNumObjects = GRID_SIZE.x * GRID_SIZE.y;

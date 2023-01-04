@@ -1,8 +1,9 @@
 #pragma once
 
-#include <hyprutils/math/Vector2D.hpp>
+#include "../desktop/DesktopTypes.hpp"
 #include <array>
 #include <vector>
+#include <hyprutils/math/Vector2D.hpp>
 
 // TODO where should these go?
 constexpr Vector2D GRID_SIZE(4, 4);
@@ -12,10 +13,10 @@ class CWindow;
 
 class CWobblyModel {
   public:
-    CWobblyModel(CWindow* window);
+    CWobblyModel(PHLWINDOW window);
     ~CWobblyModel();
 
-    CWindow* m_pWindow = nullptr;
+    PHLWINDOW m_pWindow = nullptr;
 
     int m_iWobblyBits = 1;
 
@@ -59,7 +60,7 @@ class CWobblyModel {
     Vector2D                               m_vBottomRight;
 
 
-    CWindow* m_cWindow = nullptr;
+    PHLWINDOW* m_cWindow = nullptr;
     int m_iXCells = 8;
     int m_iYCells = 8;
 
