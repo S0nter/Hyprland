@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include "../helpers/AnimatedVariable.hpp"
 #include "../helpers/BezierCurve.hpp"
+#include "../helpers/WobblyModel.hpp"
 #include "../helpers/Timer.hpp"
 #include "eventLoop/EventLoopTimer.hpp"
 
@@ -36,6 +37,7 @@ class CAnimationManager {
     SP<CEventLoopTimer>                           m_pAnimationTimer;
 
     float                                         m_fLastTickTime; // in ms
+    std::list<CWobblyModel*>                      m_lWobblyModels;
 
   private:
     bool                                          deltaSmallToFlip(const Vector2D& a, const Vector2D& b);

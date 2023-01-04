@@ -135,6 +135,12 @@ static void renderSurface(SP<CWLSurfaceResource> surface, int x, int y, void* da
 
     CBox        windowBox;
     if (RDATA->surface && surface == RDATA->surface) {
+        /// Wobbly modifications
+        // here-ish is where we need to change rendering
+        // but this will only affect window surfaces.
+        // we need to affect decorations as well
+        // I will leave this to vaxry, I think.
+
         windowBox = {(int)outputX + RDATA->x + x, (int)outputY + RDATA->y + y, RDATA->w, RDATA->h};
 
         // however, if surface buffer w / h < box, we need to adjust them
