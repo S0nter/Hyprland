@@ -17,7 +17,8 @@
 using namespace Hyprutils::String;
 
 PHLWINDOW CWindow::create(SP<CXWaylandSurface> surface) {
-    PHLWINDOW pWindow = SP<CWindow>(new CWindow(surface));
+    CWindow* cWindow = new CWindow(surface);
+    PHLWINDOW pWindow = SP<CWindow>(cWindow);
 
     pWindow->m_pSelf    = pWindow;
     pWindow->m_bIsX11   = true;
@@ -34,6 +35,8 @@ PHLWINDOW CWindow::create(SP<CXWaylandSurface> surface) {
 
     pWindow->addWindowDeco(std::make_unique<CHyprDropShadowDecoration>(pWindow));
     pWindow->addWindowDeco(std::make_unique<CHyprBorderDecoration>(pWindow));
+
+    pWindow->m_pWobblyModel = new CWobblyModel(cWindow);
 
     return pWindow;
 }
@@ -96,6 +99,9 @@ CWindow::~CWindow() {
         g_pCompositor->m_pLastWindow.reset();
     }
 
+    if(m_pWobblyModel) {
+        delete m_pWobblyModel;
+    }
     events.destroy.emit();
 
     if (!g_pHyprOpenGL)

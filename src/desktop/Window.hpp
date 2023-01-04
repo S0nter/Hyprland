@@ -6,6 +6,7 @@
 #include "../config/ConfigDataValues.hpp"
 #include "../defines.hpp"
 #include "../helpers/AnimatedVariable.hpp"
+#include "../helpers/WobblyModel.hpp"
 #include "../helpers/math/Math.hpp"
 #include "../helpers/signal/Signal.hpp"
 #include "../helpers/TagKeeper.hpp"
@@ -341,6 +342,10 @@ class CWindow {
 
     // Transformers
     std::vector<std::unique_ptr<IWindowTransformer>> m_vTransformers;
+
+    /// Wobbly modifications
+    // Wobbly effect
+    CWobblyModel* m_pWobblyModel = nullptr;
 
     // for alpha
     CAnimatedVariable<float> m_fActiveInactiveAlpha;
